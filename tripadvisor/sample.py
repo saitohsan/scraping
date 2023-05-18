@@ -30,21 +30,7 @@ class_group = driver.find_elements(by=By.CLASS_NAME, value="RfBGI")
 for elem in class_group:
     title = elem.find_element(by=By.TAG_NAME, value="a").text
     url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
-    restaurant_url_List.append(url)
-
-# 次ページがある限り処理続行
-while True:
-
-    next_button = driver.find_element(by=By.LINK_TEXT, value="次へ")
-    wait = WebDriverWait(driver,10)
-    wait.until(EC.presence_of_element_located((By.ID, 'EATERY_LIST_CONTENTS')))
-    if next_button.is_displayed():
-        next_button.click()
-        for elem in class_group:
-            url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
-            restaurant_url_List.append(url)
-    else:
-        break
+    restaurant_url_List.append(url_link)
     
 # driverを終了する
 driver.quit()
