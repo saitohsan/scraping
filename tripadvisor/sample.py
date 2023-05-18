@@ -1,6 +1,8 @@
 import csv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome import service as fs
 
 # chromeドライバのパス指定
@@ -16,22 +18,35 @@ driver.get(url)
 # CSVヘッダ
 csv_header = ['オーナー登録済フラグ','店名','住所','電話番号','ジャンル','評価＆口コミ点数','口コミ数','公式サイトURL','メニューURL','URL']
 
+# 最終的に書き込むデータ2次元配列
+restaurant_info_List = []
+restaurant_info_List.append(csv_header)
 
-# restaurant一覧、URLを取得
+# shopの個別URLだけを格納しておく配列
+restaurant_url_List = []
+
+# restaurant一覧、URLを取得（1ページ目）
 class_group = driver.find_elements(by=By.CLASS_NAME, value="RfBGI")
 for elem in class_group:
     title = elem.find_element(by=By.TAG_NAME, value="a").text
     url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
-    print(title, url_link)
+    restaurant_url_List.append(url)
 
-next_button = driver.find_element(by=By.LINK_TEXT, value="次へ")
-next_button.click()
+# 次ページがある限り処理続行
+while True:
 
-for elem in class_group:
-    title = elem.find_element(by=By.TAG_NAME, value="a").text
-    url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
-    print(title, url_link)
-
+    next_button = driver.find_element(by=By.LINK_TEXT, value="次へ")
+    wait = WebDriverWait(driver,10)
+    wait.until(EC.presence_of_element_located((By.ID, 'EATERY_LIST_CONTENTS')))
+    if next_button.is_displayed():
+        next_button.click()
+        for elem in class_group:
+            url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
+            restaurant_url_List.append(url)
+    else:
+        break
     
 # driverを終了する
 driver.quit()
+
+print(restaurant_url_List)
