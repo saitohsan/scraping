@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 driver = webdriver.Chrome('C:\Program Files\chromedriver')
 
 # 石垣島のトリップアドバイザーページを開く
-url = 'https://www.tripadvisor.com/Restaurants-g298223-Ishigaki_Okinawa_Prefecture.html'
+url = 'https://www.tripadvisor.jp/Restaurants-g298223-Ishigaki_Okinawa_Prefecture.html'
 driver.get(url)
 
 # urlを格納する配列
@@ -19,7 +19,7 @@ while True:
     print("----- ページ", page, "-----")
     
     # ページが完全に読み込まれるまで待機（最大30秒）
-    wait = WebDriverWait(driver, 30)
+    wait = WebDriverWait(driver, 10)
     wait.until(EC.presence_of_element_located((By.ID, 'EATERY_LIST_CONTENTS')))
 
     # レストランの情報を取得

@@ -31,8 +31,8 @@ for elem in class_group:
     title = elem.find_element(by=By.TAG_NAME, value="a").text
     url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
     restaurant_url_List.append(url_link)
+
+    print(url_link)
     
 # driverを終了する
 driver.quit()
-
-print(restaurant_url_List)
