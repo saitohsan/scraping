@@ -1,4 +1,5 @@
 import csv
+from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -32,7 +33,34 @@ for elem in class_group:
     url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
     restaurant_url_List.append(url_link)
 
-    print(url_link)
+    print(title,url_link)
+
+next_button = driver.find_element(by=By.LINK_TEXT, value="次へ")
+next_button.click()
+
+sleep(10)
+
+class_group = driver.find_elements(by=By.CLASS_NAME, value="RfBGI")
+for elem in class_group:
+    title = elem.find_element(by=By.TAG_NAME, value="a").text
+    url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
+    restaurant_url_List.append(url_link)
+
+    print(title,url_link)
+
+next_button = driver.find_element(by=By.LINK_TEXT, value="次へ")
+next_button.click()
+
+sleep(10)
+
+class_group = driver.find_elements(by=By.CLASS_NAME, value="RfBGI")
+for elem in class_group:
+    title = elem.find_element(by=By.TAG_NAME, value="a").text
+    url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
+    restaurant_url_List.append(url_link)
+
+    print(title,url_link)
+
     
 # driverを終了する
 driver.quit()
