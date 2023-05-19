@@ -19,8 +19,8 @@ while True:
     print("----- ページ", page, "-----")
     
     # ページが完全に読み込まれるまで待機（最大30秒）
-    wait = WebDriverWait(driver, 10)
-    wait.until(EC.presence_of_element_located((By.ID, 'EATERY_LIST_CONTENTS')))
+    wait = WebDriverWait(driver, 30)
+    wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'nav next rndBtn ui_button primary taLnk')))
 
     # レストランの情報を取得
     restaurant_elements = driver.find_elements(by=By.CLASS_NAME, value="RfBGI")
