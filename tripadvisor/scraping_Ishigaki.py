@@ -7,21 +7,11 @@ from selenium.webdriver.support import expected_conditions as EC
 driver = webdriver.Chrome('C:\Program Files\chromedriver')
 
 # 石垣島のトリップアドバイザーページを開く
-driver.get('https://www.tripadvisor.com/Restaurants-g298223-Ishigaki_Okinawa_Prefecture.html')
+url = 'https://www.tripadvisor.com/Restaurants-g298223-Ishigaki_Okinawa_Prefecture.html'
+driver.get(url)
 
-# レストランの情報を取得する関数
-def scrape_restaurant_info(element):
-    name_element = element.find_element(By.CSS_SELECTOR, "a._15_ydu6b")
-    name = name_element.text if name_element else ""
-    rating = element.find_element(By.CSS_SELECTOR, "span.ui_bubble_rating").get_attribute('alt')
-    reviews = element.find_element(By.CSS_SELECTOR, "span.reviewCount").text
-    cuisine = element.find_element(By.CSS_SELECTOR, "div._1p0FLy4t").text
-
-    print("レストラン名:", name)
-    print("評価:", rating)
-    print("口コミ数:", reviews)
-    print("料理ジャンル:", cuisine)
-    print("--------------------------------------")
+# urlを格納する配列
+url_list = []
 
 # ページ遷移しながらレストラン情報をスクレイピング
 page = 1
@@ -29,7 +19,7 @@ while True:
     print("----- ページ", page, "-----")
     
     # ページが完全に読み込まれるまで待機（最大30秒）
-    wait = WebDriverWait(driver, 60)
+    wait = WebDriverWait(driver, 30)
     wait.until(EC.presence_of_element_located((By.ID, 'EATERY_LIST_CONTENTS')))
 
     # レストランの情報を取得
@@ -37,7 +27,10 @@ while True:
 
     # 各レストランの情報を表示
     for element in restaurant_elements:
-        scrape_restaurant_info(restaurant_elements)
+        name = element.find_element(by=By.TAG_NAME, value="a").text
+        url = element.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
+        url_list.append(url)
+        print(name,url)
 
     # 「次へ」ボタンがあればクリックして次のページへ遷移
     next_button = driver.find_elements(By.CSS_SELECTOR, "a.next")
