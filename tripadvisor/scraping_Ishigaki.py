@@ -33,11 +33,11 @@ while True:
     wait.until(EC.presence_of_element_located((By.ID, 'EATERY_LIST_CONTENTS')))
 
     # レストランの情報を取得
-    restaurant_elements = driver.find_elements(By.CSS_SELECTOR, "div[data-test-target='restaurants-list'] div._1llCuDZj")
+    restaurant_elements = driver.find_elements(by=By.CLASS_NAME, value="RfBGI")
 
     # 各レストランの情報を表示
     for element in restaurant_elements:
-        scrape_restaurant_info(element)
+        scrape_restaurant_info(restaurant_elements)
 
     # 「次へ」ボタンがあればクリックして次のページへ遷移
     next_button = driver.find_elements(By.CSS_SELECTOR, "a.next")
