@@ -4,7 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # ChromeのWebDriverのパスを指定してインスタンスを作成
-driver = webdriver.Chrome('パス/to/chromedriver')
+driver = webdriver.Chrome('C:\Program Files\chromedriver')
 
 # 石垣島のトリップアドバイザーページを開く
 driver.get('https://www.tripadvisor.com/Restaurants-g298223-Ishigaki_Okinawa_Prefecture.html')
