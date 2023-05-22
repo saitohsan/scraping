@@ -33,8 +33,6 @@ for elem in class_group:
     url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
     restaurant_url_List.append(url_link)
 
-    print(title,url_link)
-
 next_button = driver.find_element(by=By.LINK_TEXT, value="次へ")
 next_button.click()
 
@@ -46,8 +44,6 @@ for elem in class_group:
     url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
     restaurant_url_List.append(url_link)
 
-    print(title,url_link)
-
 next_button = driver.find_element(by=By.LINK_TEXT, value="次へ")
 next_button.click()
 
@@ -58,9 +54,10 @@ for elem in class_group:
     title = elem.find_element(by=By.TAG_NAME, value="a").text
     url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
     restaurant_url_List.append(url_link)
-
-    print(title,url_link)
 
     
 # driverを終了する
 driver.quit()
+
+for a in restaurant_url_List:
+    print(a)
