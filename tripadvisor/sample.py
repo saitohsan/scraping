@@ -33,22 +33,28 @@ for elem in class_group:
     url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
     restaurant_url_List.append(url_link)
 
+# 次へをクリック
 next_button = driver.find_element(by=By.LINK_TEXT, value="次へ")
 next_button.click()
 
+# 10秒待機
 sleep(10)
 
+# restaurant一覧、URLを取得（2ページ目）
 class_group = driver.find_elements(by=By.CLASS_NAME, value="RfBGI")
 for elem in class_group:
     title = elem.find_element(by=By.TAG_NAME, value="a").text
     url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
     restaurant_url_List.append(url_link)
 
+# 次へをクリック
 next_button = driver.find_element(by=By.LINK_TEXT, value="次へ")
 next_button.click()
 
+# 10秒待機
 sleep(10)
 
+# restaurant一覧、URLを取得（3ページ目）
 class_group = driver.find_elements(by=By.CLASS_NAME, value="RfBGI")
 for elem in class_group:
     title = elem.find_element(by=By.TAG_NAME, value="a").text
@@ -59,5 +65,20 @@ for elem in class_group:
 # driverを終了する
 driver.quit()
 
-for a in restaurant_url_List:
-    print(a)
+# URLを順番にあけて、必要な情報をあつめる
+for target_url in restaurant_url_List:
+    # URLを開く
+    driver.get(target_url)
+
+    # 10秒待機
+    sleep(10)
+
+    # 要素取得
+    # csv_header = ['オーナー登録済フラグ','店名','住所','電話番号','ジャンル','評価＆口コミ点数','口コミ数','公式サイトURL','メニューURL','URL']
+    owner_flg = driver.find_element(by=By.CLASS_NAME, value="XAnbq _S ZUJme").text
+    restaurant_name = driver.find_element(by=By.CLASS_NAME, value="HjBfq").text
+
+    print(owner_flg,restaurant_name)
+
+    driver.quit()
+
