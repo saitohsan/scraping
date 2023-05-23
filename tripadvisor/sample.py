@@ -63,11 +63,13 @@ for elem in class_group:
 
     
 # driverを終了する
-driver.quit()
+# driver.quit()
 
 # URL格納チェック
 for a in restaurant_url_List:
     print(a)
+
+sleep(10)
 
 # URLを順番にあけて、必要な情報をあつめる
 for target_url in restaurant_url_List:
@@ -85,4 +87,3 @@ for target_url in restaurant_url_List:
     print(owner_flg,restaurant_name)
 
     driver.quit()
-
