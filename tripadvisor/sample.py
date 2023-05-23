@@ -81,8 +81,8 @@ for target_url in restaurant_url_List:
 
     # 要素取得
     # csv_header = ['オーナー登録済フラグ','店名','住所','電話番号','ジャンル','評価＆口コミ点数','口コミ数','公式サイトURL','メニューURL','URL']
-    owner_flg = driver.find_element(by=By.CLASS_NAME, value="XAnbq _S ZUJme").text
-    restaurant_name = driver.find_element(by=By.CLASS_NAME, value="HjBfq").text
+    owner_flg = driver.find_element(by=By.XPATH, value='//*[@id="component_53"]/div/div[1]/div[1]/div/div/div/text()').text
+    restaurant_name = driver.find_element(by=By.XPATH, value='//*[@id="component_53"]/div/div[1]/h1').text
 
     print(owner_flg,restaurant_name)
 
