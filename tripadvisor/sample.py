@@ -87,6 +87,9 @@ for target_url in restaurant_url_List:
     #owner_flg = driver.find_element(by=By.CLASS_NAME, value='XAnbq _S ZUJme').text
     owner_flg = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div[1]/div/div[4]/div/div/div[1]/div[1]/div/div/div').text
     restaurant_name = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div[1]/div/div[4]/div/div/div[1]/h1').text
+    address = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div[1]/div/div[4]/div/div/div[3]/span[1]/span/a').text
+    tel = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div[1]/div/div[4]/div/div/div[3]/span[2]/span/span[2]/a').text
+    genre = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div[2]/div[2]/div[2]/div/div/div/div[5]/div/div/div[2]/div[2]/div[2]').text
     
     # 配列に格納
     restaurant_info.append(owner_flg)
