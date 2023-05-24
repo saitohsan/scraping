@@ -96,3 +96,9 @@ for target_url in restaurant_url_List:
     sleep(10)
 
 driver.quit()
+
+# csv出力
+csv_path = r"ishigaki.csv"
+with open(csv_path, 'a', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerows(restaurant_info_List)
