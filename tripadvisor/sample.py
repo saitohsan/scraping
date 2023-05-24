@@ -91,7 +91,8 @@ for target_url in restaurant_url_List:
     # 配列に格納
     restaurant_info.append(owner_flg)
     restaurant_info.append(restaurant_name)
-    print(restaurant_name)
+    restaurant_info_List.append(restaurant_info)
+    print(restaurant_info)
     sleep(10)
 
 driver.quit()
