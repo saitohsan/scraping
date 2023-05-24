@@ -79,11 +79,18 @@ for target_url in restaurant_url_List:
     # 10秒待機
     sleep(10)
 
+    # 個別レストラン情報を格納する配列
+    restaurant_info = []
+
     # 要素取得
     # csv_header = ['オーナー登録済フラグ','店名','住所','電話番号','ジャンル','評価＆口コミ点数','口コミ数','公式サイトURL','メニューURL','URL']
     #owner_flg = driver.find_element(by=By.CLASS_NAME, value='XAnbq _S ZUJme').text
+    owner_flg = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div[1]/div/div[4]/div/div/div[1]/div[1]/div/div/div').text
     restaurant_name = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div[1]/div/div[4]/div/div/div[1]/h1').text
-
+    
+    # 配列に格納
+    restaurant_info.append(owner_flg)
+    restaurant_info.append(restaurant_name)
     print(restaurant_name)
     sleep(10)
 
