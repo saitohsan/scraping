@@ -108,6 +108,12 @@ for target_url in restaurant_url_List:
         score = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div[2]/div[2]/div[2]/div/div[1]/div/div[1]/div/div[1]/div[1]/span[1]').text
     except:
         score = ''
+    try:
+        kuchikomi = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div[2]/div[2]/div[2]/div/div/div/div[1]/div/div[1]/div[1]/a').text
+    except:
+        kuchikomi = ''
+    try:
+        weburl = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div[1]/div/div[4]/div/div/div[3]/span[3]/span/a').get_attribute('href')
     
     
     # 配列に格納
