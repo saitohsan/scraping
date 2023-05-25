@@ -114,6 +114,13 @@ for target_url in restaurant_url_List:
         kuchikomi = ''
     try:
         weburl = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div[1]/div/div[4]/div/div/div[3]/span[3]/span/a').get_attribute('href')
+    except:
+        weburl = ''
+    try:
+        menuurl = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div[1]/div/div[4]/div/div/div[3]/span[4]/a').get_attribute('href')
+    except:
+        menuurl=''
+
     
     
     # 配列に格納
@@ -123,6 +130,10 @@ for target_url in restaurant_url_List:
     restaurant_info.append(tel)
     restaurant_info.append(genre)
     restaurant_info.append(score)
+    restaurant_info.append(kuchikomi)
+    restaurant_info.append(weburl)
+    restaurant_info.append(menuurl)
+    restaurant_info.append(target_url)
     
     # 出力用配列に格納
     restaurant_info_List.append(restaurant_info)
