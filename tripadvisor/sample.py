@@ -90,6 +90,7 @@ for target_url in restaurant_url_List:
     address = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div[1]/div/div[4]/div/div/div[3]/span[1]/span/a').text
     tel = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div[1]/div/div[4]/div/div/div[3]/span[2]/span/span[2]/a').text
     genre = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div[1]/div/div[4]/div/div/div[2]/span[3]/a[2]').text
+    score = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div[2]/div[2]/div[2]/div/div[1]/div/div[1]/div/div[1]/div[1]/span[1]').text
     
     # 配列に格納
     restaurant_info.append(owner_flg)
