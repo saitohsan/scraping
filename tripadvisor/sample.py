@@ -97,6 +97,8 @@ for target_url in restaurant_url_List:
     restaurant_info.append(restaurant_name)
     restaurant_info.append(address)
     restaurant_info.append(tel)
+    restaurant_info.append(genre)
+    
     # 出力用配列に格納
     restaurant_info_List.append(restaurant_info)
     print(restaurant_info)
