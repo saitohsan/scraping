@@ -61,7 +61,8 @@ for elem in class_group:
     url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
     restaurant_url_List.append(url_link)
 
-    
+
+# ここで終了すると以降接続不可になる    
 # driverを終了する
 # driver.quit()
 
