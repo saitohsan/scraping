@@ -27,13 +27,8 @@ restaurant_info_List.append(csv_header)
 restaurant_url_List = []
 
 # 居酒屋をクリック
-izakaya_check = driver.find_element(by=By.ID, value='checkbox_143')
-if not izakaya_check.is_selected:
-    izakaya_check.click()
-
-
-
-
+next_button = driver.find_element(by=By.LINK_TEXT, value="次へ")
+next_button.click()
 
 
 sleep(10)
