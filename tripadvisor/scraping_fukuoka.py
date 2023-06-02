@@ -12,7 +12,7 @@ chrome_service = fs.Service(executable_path=driver_path)
 driver = webdriver.Chrome(service=chrome_service)
 
 # 探索するURLを指定する
-url = "https://www.tripadvisor.jp/Restaurants-g298207-Fukuoka_Fukuoka_Prefecture_Kyushu.html"
+url = "https://www.tripadvisor.jp/Restaurants-g298207-zft21269-Fukuoka_Fukuoka_Prefecture_Kyushu.html"
 driver.get(url)
 
 # CSVに書き込む準備
@@ -26,10 +26,45 @@ restaurant_info_List.append(csv_header)
 # shopの個別URLだけを格納しておく配列
 restaurant_url_List = []
 
-# 居酒屋をクリック
+# restaurant一覧、URLを取得（1ページ目）
+class_group = driver.find_elements(by=By.CLASS_NAME, value="RfBGI")
+for elem in class_group:
+    title = elem.find_element(by=By.TAG_NAME, value="a").text
+    url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
+    restaurant_url_List.append(url_link)
+
+# 次へをクリック
 next_button = driver.find_element(by=By.LINK_TEXT, value="次へ")
 next_button.click()
 
+# 10秒待機
+sleep(10)
+
+# restaurant一覧、URLを取得（2ページ目）
+class_group = driver.find_elements(by=By.CLASS_NAME, value="RfBGI")
+for elem in class_group:
+    title = elem.find_element(by=By.TAG_NAME, value="a").text
+    url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
+    restaurant_url_List.append(url_link)
+
+# 次へをクリック
+next_button = driver.find_element(by=By.LINK_TEXT, value="次へ")
+next_button.click()
+
+# 10秒待機
+sleep(10)
+
+# restaurant一覧、URLを取得（3ページ目）
+class_group = driver.find_elements(by=By.CLASS_NAME, value="RfBGI")
+for elem in class_group:
+    title = elem.find_element(by=By.TAG_NAME, value="a").text
+    url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
+    restaurant_url_List.append(url_link)
+
+# URL格納チェック
+for a in restaurant_url_List:
+    print(a)
 
 sleep(10)
+
 driver.quit()
