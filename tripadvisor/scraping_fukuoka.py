@@ -89,6 +89,75 @@ for elem in class_group:
     url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
     restaurant_url_List.append(url_link)
 
+# 次へをクリック
+next_button = driver.find_element(by=By.LINK_TEXT, value="次へ")
+next_button.click()
+
+# 10秒待機
+sleep(10)
+
+# restaurant一覧、URLを取得（6ページ目）
+class_group = driver.find_elements(by=By.CLASS_NAME, value="RfBGI")
+for elem in class_group:
+    title = elem.find_element(by=By.TAG_NAME, value="a").text
+    url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
+    restaurant_url_List.append(url_link)
+
+# 次へをクリック
+next_button = driver.find_element(by=By.LINK_TEXT, value="次へ")
+next_button.click()
+
+# 10秒待機
+sleep(10)
+
+# restaurant一覧、URLを取得（7ページ目）
+class_group = driver.find_elements(by=By.CLASS_NAME, value="RfBGI")
+for elem in class_group:
+    title = elem.find_element(by=By.TAG_NAME, value="a").text
+    url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
+    restaurant_url_List.append(url_link)
+
+# 次へをクリック
+next_button = driver.find_element(by=By.LINK_TEXT, value="次へ")
+next_button.click()
+
+# 10秒待機
+sleep(10)
+
+# restaurant一覧、URLを取得（8ページ目）
+class_group = driver.find_elements(by=By.CLASS_NAME, value="RfBGI")
+for elem in class_group:
+    title = elem.find_element(by=By.TAG_NAME, value="a").text
+    url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
+    restaurant_url_List.append(url_link)
+
+# 次へをクリック
+next_button = driver.find_element(by=By.LINK_TEXT, value="次へ")
+next_button.click()
+
+# 10秒待機
+sleep(10)
+
+# restaurant一覧、URLを取得（9ページ目）
+class_group = driver.find_elements(by=By.CLASS_NAME, value="RfBGI")
+for elem in class_group:
+    title = elem.find_element(by=By.TAG_NAME, value="a").text
+    url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
+    restaurant_url_List.append(url_link)
+
+# 次へをクリック
+next_button = driver.find_element(by=By.LINK_TEXT, value="次へ")
+next_button.click()
+
+# 10秒待機
+sleep(10)
+
+# restaurant一覧、URLを取得（10ページ目）
+class_group = driver.find_elements(by=By.CLASS_NAME, value="RfBGI")
+for elem in class_group:
+    title = elem.find_element(by=By.TAG_NAME, value="a").text
+    url_link = elem.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
+    restaurant_url_List.append(url_link)
 
 
 # URL格納チェック
