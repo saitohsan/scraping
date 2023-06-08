@@ -90,6 +90,7 @@ for elem in class_group:
     restaurant_url_List.append(url_link)
 
 
+
 # URL格納チェック
 for a in restaurant_url_List:
     print(a)
