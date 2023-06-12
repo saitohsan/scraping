@@ -455,7 +455,7 @@ for target_url in restaurant_url_List:
 driver.quit()
 
 # csv出力
-csv_path = r"fukuoka_izakaya4.csv"
+csv_path = r"fukuoka_izakaya5.csv"
 with open(csv_path, 'a', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(restaurant_info_List)
