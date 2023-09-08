@@ -12,8 +12,11 @@ chrome_service = fs.Service(executable_path=driver_path)
 driver = webdriver.Chrome(service=chrome_service)
 
 # 探索するURLを指定する
-url = "https://www.tripadvisor.jp/Restaurants-g298207-zft21269-Fukuoka_Fukuoka_Prefecture_Kyushu.html"
+url = "https://usengroup.comdesk.com/auth"
 driver.get(url)
+
+# sleep10秒
+sleep(10)
 
 
 # driver quit
