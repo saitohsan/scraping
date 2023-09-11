@@ -29,8 +29,7 @@ password = driver.find_elements(by=By.NAME, value="password")
 user_id.clear()
 password.clear()
 
-user_id.send_keys("")
-password.send_keys("")
+sleep(5)
 
 # driver quit
 driver.quit()
