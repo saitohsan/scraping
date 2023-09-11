@@ -19,8 +19,20 @@ driver = webdriver.Chrome(executable_path=driver_path, options=chrome_options)
 url = "https://usengroup.comdesk.com/auth"
 driver.get(url)
 
-# sleep10秒
-sleep(10)
+# sleep5秒
+sleep(5)
+
+# IDとPASS
+user_id = driver.find_element_by_name('user_id')
+password = driver.find_element_by_name('password')
+
+user_id.clear()
+password.clear()
+
+user_id.send_keys("tak-saito@comdesk.com")
+password.send_keys("usenbd2015")
+
+user_id.submit()
 
 
 # driver quit
