@@ -24,11 +24,13 @@ driver.get(url)
 sleep(5)
 
 # IDとPASS
-user_id = driver.find_elements(by=By.NAME, value="user_id")
-password = driver.find_elements(by=By.NAME, value="password")
+user_id = driver.find_element(by=By.NAME, value="user_id")
+password = driver.find_element(by=By.NAME, value="password")
 
 user_id.clear()
 password.clear()
+
+user_id.send_keys("")
 
 sleep(5)
 
