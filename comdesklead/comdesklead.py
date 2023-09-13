@@ -41,9 +41,10 @@ login_button.click()
 
 sleep(10)
 
-# モーダルをclose
-modal_close = driver.find_element(by=By.CLASS_NAME, value="close")
-modal_close.click()
+# 活動履歴へ遷移
+history_url = "https://usengroup.comdesk.com/call_log"
+driver.get(history_url)
+
 
 sleep(10)
 
