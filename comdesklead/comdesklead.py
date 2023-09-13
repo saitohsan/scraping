@@ -1,5 +1,6 @@
 import csv
 import time
+import datetime
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -45,8 +46,10 @@ sleep(10)
 history_url = "https://usengroup.comdesk.com/call_log"
 driver.get(history_url)
 
-
 sleep(10)
+
+# 今日の日付を入力
+
 
 # driver quit
 driver.quit()
