@@ -31,8 +31,13 @@ user_id.clear()
 password.clear()
 
 user_id.send_keys("")
+password.send_keys("")
 
-sleep(5)
+sleep(1)
+
+# log in 処理
+login_button = driver.find_element(by=By.ID, value="login_btn")
+login_button.click()
 
 # driver quit
 driver.quit()
