@@ -39,5 +39,7 @@ sleep(1)
 login_button = driver.find_element(by=By.ID, value="login_btn")
 login_button.click()
 
+sleep(10)
+
 # driver quit
 driver.quit()
