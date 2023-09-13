@@ -36,10 +36,11 @@ password.send_keys("")
 
 sleep(1)
 
-# log in 処理
+# ログイン処理
 login_button = driver.find_element(by=By.ID, value="login_btn")
 login_button.click()
 
+# 画面描画待機
 sleep(10)
 
 # 活動履歴へ遷移
