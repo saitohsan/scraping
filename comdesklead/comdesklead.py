@@ -41,5 +41,11 @@ login_button.click()
 
 sleep(10)
 
+# モーダルをclose
+modal_close = driver.find_element(by=By.CLASS_NAME, value="close")
+modal_close.click()
+
+sleep(10)
+
 # driver quit
 driver.quit()
