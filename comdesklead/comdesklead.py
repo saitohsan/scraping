@@ -49,7 +49,14 @@ driver.get(history_url)
 sleep(10)
 
 # 今日の日付を入力
+input_date = format(datetime.date.today(), '%Y/%m/%d')
 
+sleep(10)
+
+# CSV DLボタンを押下
+
+
+sleep(10)
 
 # driver quit
 driver.quit()
