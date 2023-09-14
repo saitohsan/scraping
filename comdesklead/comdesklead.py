@@ -51,6 +51,7 @@ sleep(10)
 
 # 今日の日付を入力
 input_date = format(datetime.date.today(), '%Y/%m/%d')
+date_from = driver.find_element(by=By.XPATH, value="/html/body/div[1]/div[4]/div[1]/div/div[1]/div[4]/label/div/div/div/input")
 
 sleep(10)
 
