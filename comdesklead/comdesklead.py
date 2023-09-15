@@ -4,6 +4,7 @@ import datetime
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
@@ -50,15 +51,30 @@ driver.get(history_url)
 sleep(10)
 
 # 今日の日付を入力
-today = datetime.date.today()
-input_date = today.strftime('%Y/%m/%d')
+input_date = datetime.datetime.now().strftime('%Y/%m/%d')
+
 date_from = driver.find_element(by=By.XPATH, value="/html/body/div[1]/div[4]/div[1]/div/div[1]/div[4]/label/div/div/div/input")
-date_from.send_keys(input_date)
+date_from.send_keys(datetime.datetime.now().strftime('%Y'))
+date_from.send_keys(Keys.TAB)
+date_from.send_keys(datetime.datetime.now().strftime('%m'))
+#date_from.send_keys(Keys.TAB) - 月を入れると自動でTAB移動するので省略
+date_from.send_keys(datetime.datetime.now().strftime('%d'))
+
+sleep(10)
+
+date_to = driver.find_element(by=By.XPATH, value='/html/body/div[1]/div[4]/div[1]/div/div[1]/div[5]/label/div/div/div/input')
+date_to.send_keys(datetime.datetime.now().strftime('%Y'))
+date_to.send_keys(Keys.TAB)
+date_to.send_keys(datetime.datetime.now().strftime('%m'))
+#date_to.send_keys(Keys.TAB) - 月を入れると自動でTAB移動するので省略
+date_to.send_keys(datetime.datetime.now().strftime('%d'))
 
 sleep(10)
 
 # CSV DLボタンを押下
 
+csv_dl_button = driver.find_element(by=By.XPATH, value='/html/body/div[1]/div[4]/button/span[2]')
+csv_dl_button.click()
 
 sleep(10)
 
