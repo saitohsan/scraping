@@ -23,6 +23,9 @@ driver = webdriver.Chrome(service=service, options=chrome_options)
 url = "https://usengroup.comdesk.com/auth"
 driver.get(url)
 
+# 最大化しないと要素が見つからない場合がある
+driver.maximize_window()
+
 # 描画待機5秒
 sleep(5)
 
@@ -111,7 +114,6 @@ sleep(20)
 path1 = 'C:/Users/tak-saito/Downloads/calllog.csv'
 path2 = 'C:/Users/tak-saito/Downloads/indeed_calllog.csv'
 os.rename(path1,path2)
-
 
 # driver quit
 driver.quit()
