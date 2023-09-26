@@ -115,5 +115,11 @@ path1 = 'C:/Users/tak-saito/Downloads/calllog.csv'
 path2 = 'C:/Users/tak-saito/Downloads/indeed_calllog.csv'
 os.rename(path1,path2)
 
+# 処理2周目
+driver.get(history_url)
+
+sleep(10)
+
+
 # driver quit
 driver.quit()
