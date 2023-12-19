@@ -20,13 +20,16 @@ service = Service(executable_path=driver_path)
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
 # 各ページを回ってURLだけ取得する
-# 回遊設定
-pageCounter = 10
-totalCounter = 2941
+# 回遊設定 pageCounterは実際より＋１すること
+pageCounter = 2
 
-# 最後に探索しにいくURLリスト
+# 最後に探索しにいくURLリスト作成定義
 urlList = []
 
+# 出力するcsvファイル用配列
+outputData = []
+
+# URLだけとってくる
 for num in range(1,pageCounter):
     url = "https://baseconnect.in/companies/category/56705ce0-0fe4-40cb-9659-68f5eaa45d27?page="+str(num)
     driver.get(url)
@@ -45,8 +48,31 @@ for num in range(1,pageCounter):
         url = urlLink.get_attribute("href");
         urlList.append(url)
 
+# 取ってきたURLを探索して情報を取得する
+for url in urlList:
+    driver.get(url)
 
-for sample in urlList:
-    print(sample)
+    # 最大化
+    driver.maximize_window()
 
+    # 描画待機3秒
+    sleep(5)
+
+    # 一時配列
+    companyInfo = []
+
+    # 会社名
+    tempCompanyName = driver.title.split('｜')
+    companyName = tempCompanyName[0]
+
+    # 本社住所
+
+    # 従業員数
+
+    # 詰め込み
+    companyInfo.append(companyName)
+
+    print(companyInfo)
+
+    sleep(5)
 
