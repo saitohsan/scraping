@@ -62,10 +62,12 @@ for url in urlList:
     companyInfo = []
 
     # 会社名
+    # ページ上の記載位置がバラバラなので、ページタイトルから取得
     tempCompanyName = driver.title.split('｜')
     companyName = tempCompanyName[0]
 
     # 本社住所
+    
 
     # 従業員数
 
