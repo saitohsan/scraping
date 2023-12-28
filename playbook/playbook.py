@@ -13,7 +13,7 @@ from selenium.webdriver.chrome.service import Service
 from google_chat import GoogleChat
 
 # chat通知初期化
-chat = GoogleChat("https://chat.googleapis.com/v1/spaces/AAAAhNlAZoc/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=c_skCh03a3b_YAx9xdvwcm2nPbcEEaig1eU8BixfVds")
+chat = GoogleChat("")
 
 # 処理開始
 chat.postText("playbook履歴取得処理開始")
