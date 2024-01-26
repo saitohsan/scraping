@@ -13,7 +13,7 @@ from selenium.webdriver.chrome.service import Service
 from google_chat import GoogleChat
 
 # chat通知初期化
-chat = GoogleChat("")
+chat = GoogleChat("<url of google chat web hook>")
 
 # 処理開始
 chat.postText("playbook履歴取得処理開始")
@@ -390,6 +390,249 @@ try:
 except:
     chat.postText("6店舗目受注商材入力の出力失敗")
 
+
+# media商材、VR、アプリンク
+try:
+    # 出力ボタンを押す
+    output_button = driver.find_element(By.XPATH, "/html/body/div[1]/div/main/div/article[2]/div[1]/div[5]/div/div/button")
+    output_button.click()
+
+    sleep(10)
+
+    # 出力選択肢を押す
+    output_element = driver.find_element(By.XPATH, "/html/body/div[1]/aside[2]/div/div[3]/div/div[2]/div[2]/div/div[2]")
+    output_element.click()
+
+    sleep(10)
+
+    # プレイブックプルダウン
+    playbook_input = driver.find_element(By.XPATH, "/html/body/div[1]/aside[2]/div/div/div[2]/div/div/div[2]/div[2]/div/div[1]/div[2]/input")
+    playbook_input.click()
+
+    sleep(5)
+
+    playbook_input.send_keys("アプリンク_20230904")
+    playbook_input.send_keys(Keys.UP)
+
+    sleep(15)
+
+    playbook_input.send_keys(Keys.ENTER)
+
+    sleep(5)
+
+    # 文字コードプルダウン
+    character_code_input = driver.find_element(By.XPATH, "/html/body/div[1]/aside[2]/div/div/div[2]/div/div/div[2]/div[5]/div/div[1]/div[2]/input")
+    character_code_input.click()
+
+    sleep(5)
+
+    character_code_input.send_keys(Keys.DOWN)
+    character_code_input.send_keys(Keys.ENTER)
+
+    sleep(5)
+
+    # 出力押下
+    output_button = driver.find_element(By.XPATH, "/html/body/div[1]/aside[2]/div/div/div[3]/div/div[2]/div/button")
+    output_button.click()
+
+    sleep(10)    
+except:
+    chat.postText("media商材、VR、アプリンクの出力失敗")
+
+
+# 共通1115見込み管理用
+try:
+    # 出力ボタンを押す
+    output_button = driver.find_element(By.XPATH, "/html/body/div[1]/div/main/div/article[2]/div[1]/div[5]/div/div/button")
+    output_button.click()
+
+    sleep(10)
+
+    # 出力選択肢を押す
+    output_element = driver.find_element(By.XPATH, "/html/body/div[1]/aside[2]/div/div[3]/div/div[2]/div[2]/div/div[2]")
+    output_element.click()
+
+    sleep(10)
+
+    # プレイブックプルダウン
+    playbook_input = driver.find_element(By.XPATH, "/html/body/div[1]/aside[2]/div/div/div[2]/div/div/div[2]/div[2]/div/div[1]/div[2]/input")
+    playbook_input.click()
+
+    sleep(5)
+
+    playbook_input.send_keys("【共通1115】見込み管理用")
+    playbook_input.send_keys(Keys.DOWN)
+
+    sleep(15)
+
+    playbook_input.send_keys(Keys.ENTER)
+
+    sleep(5)
+
+    # 文字コードプルダウン
+    character_code_input = driver.find_element(By.XPATH, "/html/body/div[1]/aside[2]/div/div/div[2]/div/div/div[2]/div[5]/div/div[1]/div[2]/input")
+    character_code_input.click()
+
+    sleep(5)
+
+    character_code_input.send_keys(Keys.DOWN)
+    character_code_input.send_keys(Keys.ENTER)
+
+    sleep(5)
+
+    # 出力押下
+    output_button = driver.find_element(By.XPATH, "/html/body/div[1]/aside[2]/div/div/div[3]/div/div[2]/div/button")
+    output_button.click()
+
+    sleep(10)
+except:
+    chat.postText("共通1115-見込み管理用の出力失敗")
+
+
+# 共通1115見込み管理用※Indeed
+try:
+    # 出力ボタンを押す
+    output_button = driver.find_element(By.XPATH, "/html/body/div[1]/div/main/div/article[2]/div[1]/div[5]/div/div/button")
+    output_button.click()
+
+    sleep(10)
+
+    # 出力選択肢を押す
+    output_element = driver.find_element(By.XPATH, "/html/body/div[1]/aside[2]/div/div[3]/div/div[2]/div[2]/div/div[2]")
+    output_element.click()
+
+    sleep(10)
+
+    # プレイブックプルダウン
+    playbook_input = driver.find_element(By.XPATH, "/html/body/div[1]/aside[2]/div/div/div[2]/div/div/div[2]/div[2]/div/div[1]/div[2]/input")
+    playbook_input.click()
+
+    sleep(5)
+
+    playbook_input.send_keys("【共通1115】見込み管理用")
+
+    sleep(10)
+
+    playbook_input.send_keys(Keys.ENTER)
+
+    sleep(5)
+
+    # 文字コードプルダウン
+    character_code_input = driver.find_element(By.XPATH, "/html/body/div[1]/aside[2]/div/div/div[2]/div/div/div[2]/div[5]/div/div[1]/div[2]/input")
+    character_code_input.click()
+
+    sleep(5)
+
+    character_code_input.send_keys(Keys.DOWN)
+    character_code_input.send_keys(Keys.ENTER)
+
+    sleep(5)
+
+    # 出力押下
+    output_button = driver.find_element(By.XPATH, "/html/body/div[1]/aside[2]/div/div/div[3]/div/div[2]/div/button")
+    output_button.click()
+
+    sleep(10)
+except:
+    chat.postText("共通1115-見込み管理用※Indeed出力失敗")
+
+
+# 0601 Upower高圧
+try:
+    # 出力ボタンを押す
+    output_button = driver.find_element(By.XPATH, "/html/body/div[1]/div/main/div/article[2]/div[1]/div[5]/div/div/button")
+    output_button.click()
+
+    sleep(10)
+
+    # 出力選択肢を押す
+    output_element = driver.find_element(By.XPATH, "/html/body/div[1]/aside[2]/div/div[3]/div/div[2]/div[2]/div/div[2]")
+    output_element.click()
+
+    sleep(10)
+
+    # プレイブックプルダウン
+    playbook_input = driver.find_element(By.XPATH, "/html/body/div[1]/aside[2]/div/div/div[2]/div/div/div[2]/div[2]/div/div[1]/div[2]/input")
+    playbook_input.click()
+
+    sleep(5)
+
+    playbook_input.send_keys("【0601】")
+    playbook_input.send_keys(Keys.UP)
+
+    sleep(10)
+
+    playbook_input.send_keys(Keys.ENTER)
+
+    sleep(5)
+
+    # 文字コードプルダウン
+    character_code_input = driver.find_element(By.XPATH, "/html/body/div[1]/aside[2]/div/div/div[2]/div/div/div[2]/div[5]/div/div[1]/div[2]/input")
+    character_code_input.click()
+
+    sleep(5)
+
+    character_code_input.send_keys(Keys.DOWN)
+    character_code_input.send_keys(Keys.ENTER)
+
+    sleep(5)
+
+    # 出力押下
+    output_button = driver.find_element(By.XPATH, "/html/body/div[1]/aside[2]/div/div/div[3]/div/div[2]/div/button")
+    output_button.click()
+
+    sleep(10)
+except:
+    chat.postText("共通0601-U POWER高圧出力失敗")
+
+
+# UFBI_DX_20230904
+try:
+    # 出力ボタンを押す
+    output_button = driver.find_element(By.XPATH, "/html/body/div[1]/div/main/div/article[2]/div[1]/div[5]/div/div/button")
+    output_button.click()
+
+    sleep(10)
+
+    # 出力選択肢を押す
+    output_element = driver.find_element(By.XPATH, "/html/body/div[1]/aside[2]/div/div[3]/div/div[2]/div[2]/div/div[2]")
+    output_element.click()
+
+    sleep(10)
+
+    # プレイブックプルダウン
+    playbook_input = driver.find_element(By.XPATH, "/html/body/div[1]/aside[2]/div/div/div[2]/div/div/div[2]/div[2]/div/div[1]/div[2]/input")
+    playbook_input.click()
+
+    sleep(5)
+
+    playbook_input.send_keys("UFBI_DX_20230904")
+    playbook_input.send_keys(Keys.UP)
+
+    sleep(10)
+
+    playbook_input.send_keys(Keys.ENTER)
+
+    sleep(5)
+
+    # 文字コードプルダウン
+    character_code_input = driver.find_element(By.XPATH, "/html/body/div[1]/aside[2]/div/div/div[2]/div/div/div[2]/div[5]/div/div[1]/div[2]/input")
+    character_code_input.click()
+
+    sleep(5)
+
+    character_code_input.send_keys(Keys.DOWN)
+    character_code_input.send_keys(Keys.ENTER)
+
+    sleep(5)
+
+    # 出力押下
+    output_button = driver.find_element(By.XPATH, "/html/body/div[1]/aside[2]/div/div/div[3]/div/div[2]/div/button")
+    output_button.click()
+
+    sleep(10)
+except:
+    chat.postText("UFBI_DX_20230904出力失敗")
 
 
 # 処理終了
